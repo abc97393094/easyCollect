@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Title</title>
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <style>
+        html{
+            font-family: -apple-system,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB",STHeiti,"Microsoft YaHei","Microsoft JhengHei","Source Han Sans SC","Noto Sans CJK SC","Source Han Sans CN","Noto Sans SC","Source Han Sans TC","Noto Sans CJK TC","WenQuanYi Micro Hei",SimSun,sans-serif;
+        }
+        body .side {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 480px;
+            float: left;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            transition: all .2s;
+        }
+        .main-wraper{
+            margin-left: 480px;
+            clear: both;
+            position: relative;
+        }
+        .main{
+            width: 100%;
+            position: absolute;
+            top: 100px;
+
+
+        }
+        .main > .form{
+            width: 480px;
+            margin: 0 auto;
+
+        }
+        body .main>.form .welcome {
+            font-size: 44px;
+            margin-bottom: 20px;
+
+        }
+        body .main>.form .welcome-small {
+            font-size: 28px;
+            margin-bottom: 64px;
+            line-height: 1.2;
+            color: #333;
+        }
+        body .main>.form form>input {
+            margin: 24px 0 0;
+            border: 1px #aaa solid;
+            border-radius: 4px;
+            background: 0 0;
+            text-align: left;
+            font-size: 20px;
+            width: 438px;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 20px;
+            transition: all .2s;
+        }
+        body .main>.form form>input:hover {
+            border-color: #777;
+        }
+        body .main>.form form>input:focus {
+            border-color: #549df8;
+        }
+        body .main>.form form>.sub>#get_acc{
+            background: #3487ff;
+            width: 438px;
+            height: 60px;
+            color: #fff;
+            text-align: center;
+            border: 1px solid #3083ff;
+            border-radius: 4px;
+            font-size: 24px;
+            font-weight: lighter;
+            margin: 40px 0 8px;
+            transition: all .2s ;
+        }
+        body .main>.form form>.agreement>#agree{
+            display: none;
+        }
+        body .main>.form form>.sub>#get_acc:hover{
+            background-color: #3580eb;
+        }
+        input[type="checkbox"]+label {
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 5px;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        label::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #EEE;
+            vertical-align: middle;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+        input[type="checkbox"]:checked+label::before{
+            background-color: rgba(52,135,255,.5);
+            border: 3px #EEE solid;
+        }
+        body .main>.form form .agreement .checkbox {
+            line-height: 30px;
+            font-size: 13px;
+            color: #aaa;
+            font-weight: 500;
+        }
+        @media screen and (max-width:1200px ){
+            body .side {
+                width: 240px;
+            }
+            .main-wraper{
+                margin-left: 240px;
+            }
+        }
+        @media screen and (max-width:1000px ){
+            body .side {
+                display: none;
+            }
+            .main-wraper{
+                margin-left: 0px;
+            }
+        }
+    </style>
+    <script>
+        $(function () {
+            var i = 1;
+//            $('.side').css('background-image',"url(image/01-3.jpg)");
+
+            var images = {"image":[{"images":"image/01-1.jpg"},{"images":"image/01-2.jpg"},{"images":"image/01-3.jpg"},{"images":"image/01-4.jpg"}]}
+            setInterval(function () {
+
+                if(i>3){
+                    i=0;
+                }
+                $('.side').css('background-image',"url("+images.image[i++].images+")");
+            },4000)
+        })
+    </script>
+</head>
+
+<body>
+<div class="side" style="background-image: url('image/01-1.jpg')"></div>
+<div class="main-wraper">
+    <div class="main">
+        <div class="form">
+            <div class="header">
+                <div class="welcome">
+                    欢迎注册易收集
+                </div>
+                <div class="welcome-small">
+                    记录你所在乎的
+                </div>
+            </div>
+            <form>
+                <input type="text" id="nickname" maxlength="24" placeholder="昵称">
+                <input type="password" id="password" maxlength="24" placeholder="密码">
+                <div class="sub">
+                    <input id="get_acc" type="submit" class="submit" value="立即注册">
+                </div>
+                <div class="agreement">
+                    <input type="checkbox" name="agree" id="agree">
+                    <label for="agree" class="checkbox">我已阅读并同意相关服务条款和隐私政策</label>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

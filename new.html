@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Title</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_289760_kjgrg5zwme9g4x6r.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/header.css">
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <style>
+        /*html,body{*/
+            /*height:100%;*/
+        /*}*/
+        .content{
+            text-align: center;
+        }
+        .content > div{
+            border-radius: 4px;
+        }
+        .content .show{
+            box-shadow: 0px 0px 6px #ddd;
+            border: 1px solid #e3eaf3;
+
+        }
+        /*标题*/
+        .content .title{
+            transition: all .3s;
+            height: 120px;
+            line-height: 112px;
+            font-size: 42px;
+            background-color: #fff;
+            border-radius: 4px 4px 0 0;
+            color: #4e4e50;
+            border-bottom: solid #e3eaf3 1px;
+            border-top:solid #fff 8px;
+        }
+        /*内容*/
+        dl {
+            margin-top: 0;
+            background-color: #fcfcfc;
+            padding: 20px 0;
+            margin-bottom:0;
+        }
+        dd {
+            margin-left: 0;
+            color: #777777;
+            font-size: 16px;
+            padding: 8px 0;
+        }
+        /*创建*/
+
+        .create{
+            display: block;
+            font-size: 24px;
+            line-height: 3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0 0 4px 4px;
+        }
+        .create:hover{
+            color: #fff;
+            text-decoration: none;
+        }
+        /*根据不同的类型不同颜色*/
+        .tiks .create{
+            background-color: #53a4f4;
+        }
+        .form .create{
+            background-color: #2aad94;
+        }
+        .tiks:hover .title{
+            border-top: 8px solid #53a4f4;
+        }
+        .form:hover .title{
+            border-top: 8px solid #2aad94;
+        }
+    </style>
+    <script>
+        function show() {
+            var $windowsheight = $(window).height();
+            var $colheight = $('.content .tiks').height();
+            var $headertop = $('header').height();
+            $('.container').css('margin-top',(($windowsheight- $colheight-$headertop)/2)>0?(($windowsheight- $colheight-$headertop)/2):0);
+        }
+        $(window).resize(function () {
+            show();
+        })
+        $(function () {
+            show();
+        })
+    </script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">返回</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right member">
+                    <li class="headpic">
+                        <img style="width: 50px;border-radius: 50%;" src="image/headpic.jpeg">
+                    </li>
+                    <li class="userinfo">
+                        <a href="#">时间会走我不走</a>
+                    </li>
+                    <li><a href="#" id="qq-login"> 退出</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="container main">
+    <div class="row">
+        <div class="content">
+            <div class="col-md-6 tiks">
+                <div class="show">
+                    <div class="title">
+                        问卷
+                    </div>
+                    <dl>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                    </dl>
+                    <a class="create iconfont icon-jiahao" href="#">创建</a>
+                </div>
+
+            </div>
+            <div class="col-md-6 form">
+                <div class="show">
+                    <div class="title">
+                        表单
+                    </div>
+                    <dl>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                        <dd>品牌营销</dd>
+                    </dl>
+                    <a class="create iconfont icon-jiahao" href="#">创建</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

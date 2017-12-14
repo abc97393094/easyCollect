@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_289760_kjgrg5zwme9g4x6r.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/header.css">
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <script>
+        $(function () { $("[data-toggle='tooltip']").tooltip(); });
+    </script>
+    <style>
+
+        /*新建*/
+        .create{
+            line-height: 150px;
+            color: #53a4f4;
+            font-size: 24px;
+            text-align: center;
+            border:dashed 1px #b0b0b0;
+            cursor: pointer;
+        }
+        /*盒子模型*/
+        .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+            padding-bottom: 15px;
+        }
+        .bd{
+            padding: 25px;
+        }
+        .main.container-fluid{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .bd{
+            background-color: #fff;
+            border-radius: 6px;
+            height: 200px;
+            position: relative;
+            transition: all .2s;
+        }
+        .bd-title{
+            font-size: 16px;
+            display: block;
+            color: #434a5d;
+        }
+        .edit_time{
+            color: #adadad;
+            display: block;
+            margin-top: 5px;
+        }
+        .state,
+        .operte-bar{
+            position: absolute;
+            bottom: 0;
+            left:0;
+            padding: 10px 25px;
+        }
+        .state{
+            background-color: #f8f8f8;
+            width: 100%;
+            border-radius: 0 0 5px 5px;
+            transition: all .2s;
+
+        }
+        .state.stop{
+            color: #ffa60b;
+        }
+        .state.ok{
+            color: #68bb47;
+        }
+
+        .state em{
+            display: inline-block;
+            color: #8f8f8f;
+            float: right;
+        }
+        .operte-bar{
+            transition: all .3s;
+            opacity: 0;
+            z-index: 5;
+            background-color: #f3f3f3;
+            width: 100%;
+            text-align: center;
+            padding: 4px 25px;
+        }
+        .operte-bar a{
+            color: #999;
+            font-size: 25px;
+            padding: 5px;
+            text-decoration: none;
+        }
+        @media screen and (min-width: 768px){
+
+            .navbar-nav > li > a {
+                padding:30px 30px;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .bd:hover{
+                box-shadow: 0px 0px 20px #838383;
+            }
+            .bd:hover .state{
+                opacity: 0;
+            }
+            .bd:hover .operte-bar{
+                opacity: 1;
+
+            }
+
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">我&nbsp;的</a></li>
+                    <li><a href="#">模板库</a></li>
+                    <li><a href="#">应用中心</a></li>
+                    <li><a href="#">帮助</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right member">
+                    <li class="headpic">
+                        <img style="width: 50px;border-radius: 50%;" src="image/headpic.jpeg">
+                    </li>
+                    <li class="userinfo">
+                        <a href="#">时间会走我不走</a>
+                    </li>
+                    <li><a href="#" id="qq-login"> 退出</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="create bd">
+                <i class="iconfont icon-jiahao" style="font-size: 24px;"></i>
+                <span>新建</span>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="bd">
+                <a class="bd-title" href="#">表单1</a>
+                <span class="edit_time">2天前</span>
+                <div class="state stop">
+                    <i class="iconfont icon-zanting"></i>
+                    未发布
+                    <em>0份数据</em>
+                </div>
+                <div class="operte-bar">
+                    <a href="#" class="iconfont icon-pingjia" data-toggle="tooltip" data-placement="top" title="编辑表单"></a>
+                    <a href="#" class="iconfont icon-guanyanren" data-toggle="tooltip" data-placement="top" title="收集数据"></a>
+                    <a href="#" class="iconfont icon-faxian" data-toggle="tooltip" data-placement="top" title="数据报表"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="bd">
+                <a class="bd-title" href="#">表单2</a>
+                <span class="edit_time">2天前</span>
+                <div class="state ok">
+                    <i class="iconfont icon-duigou"></i>
+                    收集中
+                    <em>0份数据</em>
+                </div>
+                <div class="operte-bar">
+                    <a href="#" class="iconfont icon-pingjia" data-toggle="tooltip" data-placement="top" title="编辑表单"></a>
+                    <a href="#" class="iconfont icon-guanyanren" data-toggle="tooltip" data-placement="top" title="收集数据"></a>
+                    <a href="#" class="iconfont icon-faxian" data-toggle="tooltip" data-placement="top" title="数据报表"></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="bd">
+                <a class="bd-title" href="#">表单1</a>
+                <span class="edit_time">2天前</span>
+                <div class="state stop">
+                    <i class="iconfont icon-zanting"></i>
+                    未发布
+                    <em>0份数据</em>
+                </div>
+                <div class="operte-bar">
+                    <a href="#" class="iconfont icon-pingjia" data-toggle="tooltip" data-placement="top" title="编辑表单"></a>
+                    <a href="#" class="iconfont icon-guanyanren" data-toggle="tooltip" data-placement="top" title="收集数据"></a>
+                    <a href="#" class="iconfont icon-faxian" data-toggle="tooltip" data-placement="top" title="数据报表"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="bd">
+                <a class="bd-title" href="#">表单1</a>
+                <span class="edit_time">2天前</span>
+                <div class="state stop">
+                    <i class="iconfont icon-zanting"></i>
+                    未发布
+                    <em>0份数据</em>
+                </div>
+                <div class="operte-bar">
+                    <a href="#" class="iconfont icon-pingjia" data-toggle="tooltip" data-placement="top" title="编辑表单"></a>
+                    <a href="#" class="iconfont icon-guanyanren" data-toggle="tooltip" data-placement="top" title="收集数据"></a>
+                    <a href="#" class="iconfont icon-faxian" data-toggle="tooltip" data-placement="top" title="数据报表"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="bd">
+                <a class="bd-title" href="#">表单1</a>
+                <span class="edit_time">2天前</span>
+                <div class="state stop">
+                    <i class="iconfont icon-zanting"></i>
+                    未发布
+                    <em>0份数据</em>
+                </div>
+                <div class="operte-bar">
+                    <a href="#" class="iconfont icon-pingjia" data-toggle="tooltip" data-placement="top" title="编辑表单"></a>
+                    <a href="#" class="iconfont icon-guanyanren" data-toggle="tooltip" data-placement="top" title="收集数据"></a>
+                    <a href="#" class="iconfont icon-faxian" data-toggle="tooltip" data-placement="top" title="数据报表"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="bd">
+                <a class="bd-title" href="#">表单1</a>
+                <span class="edit_time">2天前</span>
+                <div class="state stop">
+                    <i class="iconfont icon-zanting"></i>
+                    未发布
+                    <em>0份数据</em>
+                </div>
+                <div class="operte-bar">
+                    <a href="#" class="iconfont icon-pingjia" data-toggle="tooltip" data-placement="top" title="编辑表单"></a>
+                    <a href="#" class="iconfont icon-guanyanren" data-toggle="tooltip" data-placement="top" title="收集数据"></a>
+                    <a href="#" class="iconfont icon-faxian" data-toggle="tooltip" data-placement="top" title="数据报表"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

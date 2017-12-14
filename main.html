@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_289760_2whpywbhp3wvobt9.css">
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <link href="https://cdn.bootcss.com/fullPage.js/2.9.5/jquery.fullpage.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/fullPage.js/2.9.5/jquery.fullpage.extensions.min.js"></script>
+    <script>
+        $(function(){
+            $('#dowebok').fullpage();
+
+        });
+
+    </script>
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">使用场景</a></li>
+                    <li><a href="#">价格</a></li>
+                    <li><a href="#">模板库</a></li>
+                    <li><a href="#">解决方案</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right member">
+                    <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">登录</a></li>
+                    <li><a href="#">注册</a></li>
+                    <li><a href="#" class="icon-qq iconfont" id="qq-login"> QQ登录</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div id="dowebok">
+    <div class="section section1 active">
+        <div class="show-desc">
+            <div class="show-1 show">
+                <span class="desc-title">记录你所在乎的</span>
+                <span class="desc-smtitle">Record to what you care about</span>
+            </div>
+            <a class="free-click" href="#">免费使用</a>
+            <p style="color: #eee;">*为番职院而生的收集系统，只在易收集</p>
+
+        </div>
+    </div>
+    <div class="section section2">
+        <div class="show-desc">
+            <div class="show-2 show animate">
+                <span class="desc-title show-title">问卷</span>
+                <span class="show-content">快速制作网络问卷、收集数据并生成精美报表，助你完成客户满意度调查、员工满意度调查、
+360度员工测评、用户态度与行为研究、产品测试、投票评选...</span>
+            </div>
+            <a class="desc-click" href="#">了解更多</a>
+        </div>
+    </div>
+    <div class="section section3">
+        <div class="show-desc">
+            <div class="show-2 show animate">
+                <span class="show-title desc-title">表单</span>
+                <span class="show-content">报名表、登记表、反馈表、邀请函、网络订单等各类表单都能用问卷网便捷地制作，
+发布后还能助你快速完成数据收集和分析...</span>
+            </div>
+            <a class="desc-click" href="#">了解更多</a>
+        </div>
+    </div>
+    <div class="section section4">
+        <div class="show-desc">
+            <div class="show-2 show animate">
+                <span class="show-title desc-title" >测评</span>
+                <span class="show-content" >轻松制作一份能自动算分的试卷，适用于培训考试、教学测验、员工考核等等，
+趣味测试、心理测试也不在话下...</span>
+            </div>
+            <a class="desc-click" href="#">了解更多</a>
+        </div>
+    </div>
+</div>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="login-logo">易收集</div>
+        <div class="login-name">
+            <input type="text" id="login_username" placeholder="用户账号">
+        </div>
+        <div class="login-password">
+            <input type="password" id="login_password" placeholder="密码">
+        </div>
+        <div class="login-btn">
+            <a class="login-btn" href="javascript:void(0);">登录</a>
+        </div>
+        <i class="close-dialog icon-guanbi iconfont" data-dismiss="modal"></i>
+
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</body>
+</html>

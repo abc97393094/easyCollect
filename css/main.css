@@ -1,0 +1,232 @@
+.section1{
+    background: url("../image/index1.jpg") no-repeat center ;
+    background-size: cover;
+}
+.section2{
+    background: url("../image/index2.jpg") no-repeat center;
+    background-size: cover;
+}
+.section3{
+    background: url("../image/index3.jpg") no-repeat center;
+    background-size: cover;
+}
+.section4{
+    background: url("../image/index4.jpg") no-repeat center;
+    background-size: cover;
+}
+header{
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    border: none;
+    margin-bottom:0;
+}
+.navbar-default{
+    background-color: transparent;
+}
+.navbar-default .navbar-nav>li>a {
+    font-size: 18px;
+    color: #fff;
+}
+
+.show-desc{
+    text-align: center;
+}
+.show-desc > .show{
+    margin: 0 auto;
+    margin-bottom: 200px;
+}
+.show-desc > .show > span{
+    display: block;
+    color: #fff;
+}
+.show-desc > .free-click{
+    margin: 0 auto;
+    display: inline-block;
+    /*width: 400px;*/
+    padding: 6px 200px;
+    border-radius: 5px;
+    font-size: 24px;
+    color: #fff;
+    background-color: #56a5f1;
+    margin-bottom: 30px;
+}
+
+.show-desc > .desc-click{
+    margin: 0 auto;
+    display: block;
+    width: 120px;
+    font-size: 16px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px 0;
+    transition: all .3s;
+    text-decoration: none;
+}
+.show-desc > .desc-click:hover{
+    background-color: #56a5f1;
+    border: 1px solid #56a5f1;
+}
+.show-desc .desc-title{
+    font-size: 70px;letter-spacing: 10px
+}
+.show-desc .desc-smtitle{
+    font-size: 30px;
+}
+.animate > span,
+.desc-click{
+    opacity:0;
+}
+.active .show-title{
+    animation: hidetoshow 1s;
+    animation-fill-mode: forwards;
+    animation-delay:0.5s;
+}
+.active .show-content{
+    animation: downtoup 1s;
+    animation-fill-mode: forwards;
+    animation-delay:1s;
+    font-size: 20px;
+    padding: 60px 200px 0;
+    margin: 0 auto;
+}
+.active .desc-click{
+    animation: downtoup 1s;
+    animation-fill-mode: forwards;
+    animation-delay:1.5s;
+}
+/*对bootstrap的nav css修改*/
+.nav{
+    margin-top: 20px;
+}
+.navbar-nav>li>a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+/*对bootstrap nav a标签修改*/
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+}
+
+/*模态框*/
+.modal .modal-dialog{
+    background-color: #fff;
+    padding:20px;
+}
+.modal .modal-dialog > .login-logo{
+    text-align: center;
+    color: #56a5f1;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.modal .modal-dialog > .login-name,
+.modal .modal-dialog > .login-password{
+    text-align: center;
+    color: #999;
+    width: 50%;
+    margin: 0 auto 20px;
+}
+.modal .modal-dialog > .login-name > input,
+.modal .modal-dialog > .login-password > input{
+    border: 1px solid #bfbfbf;
+    border-radius: 4px;
+    height: 25px;
+    line-height:16px;
+    padding: 18px 10px;
+    width: 100%;
+
+}
+
+.modal .modal-dialog > .login-btn{
+    text-align: center;
+}
+.modal .modal-dialog > .login-btn > a{
+    width: 50%;
+    padding: 10px 0;
+    display: inline-block;
+    background: #56a5f1;
+    color: #fff;
+    margin-bottom: 20px;
+
+}
+/*关闭按钮*/
+.close-dialog.iconfont{
+    font-size: 24px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+    color: #999;
+}
+.close-dialog:hover{
+    color: #56a5f1;
+}
+/*动画效果*/
+@keyframes hidetoshow
+{
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+@keyframes downtoup
+{
+    0% {position: relative;top: 25px;opacity: 0;}
+    100% {position: relative;top: 0;opacity: 1;}
+}
+@media (max-width: 768px){
+    .show-desc .desc-title{
+        font-size: 40px;letter-spacing: 5px
+    }
+    .show-desc .desc-smtitle{
+        font-size: 26px;
+    }
+    .show-desc > .free-click{
+        padding:6px 60px;
+    }
+    .active .show-content{
+        padding: 30px 25px 0;
+    }
+    .show-desc > .show {
+        margin: 0 auto;
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    header{
+        padding:0 180px;
+    }
+}
+@media screen and (min-width: 1800px){
+    header{
+        padding:0 400px;
+    }
+}
+@media screen and (min-width:768px) {
+    .navbar-default .navbar-nav.member>li> a{
+        font-size: 14px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        margin-right: 10px;
+        transition: all .5s;
+    }
+    .navbar-default .navbar-nav.member>li> a:hover{
+        background-color: #56a5f1;
+        border-color: #56a5f1;
+        color: #fff;
+    }
+    #qq-login{
+        background-color:#56a5f1;
+        border: 1px solid #56a5f1;
+        transition: all .3s;
+    }
+    #qq-login:hover{
+        background-color:#75b6f5;
+        border-color: #75b6f5;
+    }
+}

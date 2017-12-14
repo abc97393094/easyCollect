@@ -1,0 +1,42 @@
+body{
+    background-color: #EEEFF1;
+}
+.navbar-default {
+    background-color: #484848;
+    border-color: #e7e7e7;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-default .navbar-nav.navbar-right > .headpic {
+    padding-top: 15px;
+}
+.navbar-default {
+    background-color: #484848;
+    border-radius: 0;
+    border:none;
+}
+.navbar-default .navbar-nav > .active > a{
+    color: #fff;
+    background-color: #53a4f4;
+}
+
+@media screen and (min-width: 768px){
+
+    .navbar-nav > li > a {
+        padding:30px 30px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .bd:hover{
+        box-shadow: 0px 0px 20px #838383;
+    }
+    .bd:hover .state{
+        opacity: 0;
+    }
+    .bd:hover .operte-bar{
+        opacity: 1;
+
+    }
+
+}
