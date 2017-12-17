@@ -1,33 +1,33 @@
 $(document).ready(function(e) {
-			 $('#addquerstions').change(function() {
+			 $('.slider-left ul li').click(function() {
 
 		            // debugger
-		            var index = $(this).val(); //选择添加问题的类型
-		            if (index == "-1") {
-		                return;
-		            }
+		            var id = $(this).attr('id') //选择添加问题的类型
+		            // if (index == "-1") {
+		            //     return;
+		            // }
 		            var movie_box = '<div class="movie_box" style="border: 1px solid rgb(255, 255, 255);"></div>';
 		            var Grade = $(".yd_box").find(".movie_box").length + 1;
-		            switch (index) {
-		                case "0": //单选
-		                case "1": //多选
-		                case "2": //问答
+		            switch (id) {
+		                case "radio": //单选
+		                case "checkbox": //多选
+		                case "text": //问答
 		                    var wjdc_list = '<ul class="wjdc_list"></ul>'; //问答 单选 多选
 		                    var danxuan = "";
-		                    if (index == "0") {
+		                    if (id == "radio") {
 		                        danxuan = '【单选】';
-		                    } else if (index == "1") {
+		                    } else if (id == "checkbox") {
 		                        danxuan = '【多选】';
-		                    } else if (index == "2") {
-		                        danxuan = '【问答】';
+		                    } else if (id == "text") {
+		                        danxuan = '【填空】';
 		                    }
 		                    
 		                    wjdc_list = $(wjdc_list).append(' <li><div class="tm_btitlt"><i class="nmb">' + Grade + '</i>. <i class="btwenzi">请编辑问题？</i><span class="tip_wz">' + danxuan + '</span></div></li>');
-		                    if (index == "2") {
+		                    if (id == "text") {
 		                        wjdc_list = $(wjdc_list).append('<li>  <label> <textarea name="" cols="" rows="" class="input_wenbk btwen_text btwen_text_dx" ></textarea></label> </li>');
 		                    }
 		                    movie_box = $(movie_box).append(wjdc_list);
-		                    movie_box = $(movie_box).append('<div class="dx_box" data-t="' + index + '"></div>');
+		                    movie_box = $(movie_box).append('<div class="dx_box" data-t="' + id + '"></div>');
 
 		                    break;
 		                case "3":
@@ -35,7 +35,7 @@ $(document).ready(function(e) {
 		                    +' <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tswjdc_table"><tbody></tbody></table></div>'; //问答 单选 多选
 
 		                    movie_box = $(movie_box).append(wjdc_list);
-		                    movie_box = $(movie_box).append('<div class="dx_box" data-t="' + index + '"></div>');
+		                    movie_box = $(movie_box).append('<div class="dx_box" data-t="' + id + '"></div>');
 		                    break;
 
 		            }
@@ -88,7 +88,7 @@ $(document).ready(function(e) {
 				});
 
 				//下移
-				$(".xy").live("click", function() {
+				$(document).on("click",'.xy', function() {
 					//文字的长度 
 					var leng = $(".yd_box").children(".movie_box").length;
 					var dqgs = $(this).parent(".kzqy_czbut").parent(".movie_box").index();
@@ -107,7 +107,7 @@ $(document).ready(function(e) {
 					}
 				});
 				//上移
-				$(".sy").live("click", function() {
+				$(document).on("click",'.sy',function() {
 					//文字的长度 
 					var leng = $(".yd_box").children(".movie_box").length;
 					var dqgs = $(this).parent(".kzqy_czbut").parent(".movie_box").index();
@@ -126,7 +126,7 @@ $(document).ready(function(e) {
 					}
 				});
 				//删除
-				$(".del").live("click", function() {
+				$(document).on("click", '.del',function() {
 					var czxx = $(this).parent(".kzqy_czbut").parent(".movie_box");
 					var zgtitle_gs = czxx.parent(".yd_box").find(".movie_box").length;
 					var xh_num = 1;
@@ -140,7 +140,7 @@ $(document).ready(function(e) {
 				});
 
 				//编辑
-				$(".bianji").live("click", function() {
+				$(document).on("click",'.bianji',function() {
 					//编辑的时候禁止其他操作   
 					$(this).siblings().hide();
 					//$(this).parent(".kzqy_czbut").parent(".movie_box").unbind("hover"); 
@@ -156,7 +156,7 @@ $(document).ready(function(e) {
 					var timlrxm = $(this).parent(".kzqy_czbut").parent(".movie_box").children(".wjdc_list").children("li").length;
 
 					//单选题目
-					if(title == 0) {
+					if(title == "radio") {
 						dx_rq.show().html(dxtm);
 						//模具题目选项的个数
 						var bjxm_length = dx_rq.find(".title_itram").children(".kzjxx_iteam").length;
@@ -186,7 +186,7 @@ $(document).ready(function(e) {
 						});
 					}
 					//多选题目  
-					if(title == 1) {
+					if(title == "checkbox") {
 						dx_rq.show().html(duoxtm);
 						//模具题目选项的个数
 						var bjxm_length = dx_rq.find(".title_itram").children(".kzjxx_iteam").length;
@@ -217,7 +217,7 @@ $(document).ready(function(e) {
 						});
 					}
 					//填空题目
-					if(title == 2) {
+					if(title == "text") {
 						dx_rq.show().html(tktm);
 						//赋值文本框 
 						//题目标题
@@ -231,13 +231,13 @@ $(document).ready(function(e) {
 				});
 
 				//增加选项  
-				$(".zjxx").live("click", function() {
+				$(document).on("click",'.zjxx',function() {
 					var zjxx_html = $(this).prev(".title_itram").children(".kzjxx_iteam").html();
 					$(this).prev(".title_itram").append("<div class='kzjxx_iteam'>" + zjxx_html + "</div>");
 				});
 
 				//删除一行 
-				$(".del_xm").live("click", function() {
+				$(document).on("click",'.del_xm',function() {
 					//获取编辑题目的个数
 					var zuxxs_num = $(this).parent(".kzjxx_iteam").parent(".title_itram").children(".kzjxx_iteam").length;
 					if(zuxxs_num > 1) {
@@ -247,7 +247,7 @@ $(document).ready(function(e) {
 					}
 				});
 				//取消编辑
-				$(".dx_box .qxbj_but").live("click", function() {
+				$(document).on("click",'.dx_box .qxbj_but',function() {
 					$(this).parent(".bjqxwc_box").parent(".dx_box").empty().hide();
 					$(".movie_box").css({
 						"border": "1px solid #fff"
@@ -257,14 +257,14 @@ $(document).ready(function(e) {
 				});
 				// body...
 				//完成编辑（编辑）
-				$(".swcbj_but").live("click", function() {
+				$(document).on("click",'.swcbj_but',function() {
 
 					var jcxxxx = $(this).parent(".bjqxwc_box").parent(".dx_box"); //编辑题目区
 					var querstionType = jcxxxx.attr("data-t"); //获取题目类型
 
 					switch(querstionType) {
-						case "0": //单选
-						case "1": //多选	
+						case "radio": //单选
+						case "checkbox": //多选
 							//编辑题目选项的个数
 							var bjtm_xm_length = jcxxxx.find(".title_itram").children(".kzjxx_iteam").length; //编辑选项的 选项个数
 							var xmtit_length = jcxxxx.parent(".movie_box").children(".wjdc_list").children("li").length - 1; //题目选择的个数
@@ -303,7 +303,7 @@ $(document).ready(function(e) {
 							});
 
 							break;
-						case "2":
+						case "text":
 							var texte_bt_val_bj = jcxxxx.find(".btwen_text").val(); //获取问题题目
 							jcxxxx.parent(".movie_box").children(".wjdc_list").children("li").eq(0).find(".tm_btitlt").children(".btwenzi").text(texte_bt_val_bj); //将修改过的问题题目展示
 							break;
