@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_289760_kjgrg5zwme9g4x6r.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/public.css">
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <style>
+        body{
+            background-color: #EEEFF1;
+        }
+        .main{
+            margin-top: 20px;
+            background-color: #fff;
+            padding:20px 50px;
+        }
+        .suv-title{
+            border-bottom: 3px solid #0099ff;
+            margin-bottom: 50px;
+        }
+        .suv-title p{
+            text-align: center;
+        }
+        .suv-title > .suvTitle{
+            font-size: 25px;
+            font-weight: 500;
+        }
+        .main > div{
+            padding-bottom: 20px;
+        }
+        .submit{
+            display: inline-block;
+            padding: 10px 80px;
+            background-color: #0099ff;
+            color: #fff;
+            border-radius: 5px;
+            transition: all .2s;
+        }
+        .submit:hover{
+            text-decoration: none;
+        }
+        .main-show-mb{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #999;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .tips{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            font-size: 25px;
+            margin-left:-225px;
+            margin-top: -18px;
+            color: #fff;
+        }
+        @media screen and (max-width: 768px) {
+            .submit{
+                padding:15px 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <script>
+        $(()=>{
+            $('.submit').click(()=>{
+//                $('.main-show-mb').css('display','block')
+                $('.main-show-mb').fadeIn();
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="alert alert-warning" role="alert">当前为预览页不记录答案，请勿发送给他人填写！</div>
+    <div class="main">
+        <div class="suv-title">
+            <p class="suvTitle">问卷标题</p>
+            <p class="welcome">感谢您能抽出几分钟时间来参加本次答题，现在我们就马上开始吧！</p>
+        </div>
+        <div class="text">
+            <p>单行填空</p>
+            <input type="text" style="width: 100%">
+        </div>
+        <div class="radio">
+            <p>单选框</p>
+            <input type="radio" id="radio-1" name="radio1">
+            <label for="radio-1">选择一</label>
+            <input type="radio" id="radio-2" name="radio1">
+            <label for="radio-2">选择二</label>
+        </div>
+        <div class="checkbox">
+            <p>单选框</p>
+            <input type="checkbox" id="checkbox-1">
+            <label for="checkbox-1">选择一</label>
+            <input type="checkbox" id="checkbox-2">
+            <label for="checkbox-2">选择二</label>
+        </div>
+        <div class="radio">
+            <p>单选框</p>
+            <input type="radio" id="radio-11" name="radio11">
+            <label for="radio-11">选择一</label>
+            <input type="radio" id="radio-22" name="radio11">
+            <label for="radio-22">选择二</label>
+        </div>
+        <div class="checkbox">
+            <p>单选框</p>
+            <input type="checkbox" id="checkbox-11">
+            <label for="checkbox-11">选择一</label>
+            <input type="checkbox" id="checkbox-22">
+            <label for="checkbox-22">选择二</label>
+        </div>
+        <a href="#" class="submit">提交</a>
+    </div>
+</div>
+<div class="main-show-mb">
+    <div class="tips">
+        您已完成本次问卷，感谢您的帮助与支持
+    </div>
+</div>
+</body>
+</html>
