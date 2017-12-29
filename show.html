@@ -52,6 +52,18 @@
             left: 0;
             display: none;
         }
+        .radio-group,.checkbox-group,.text-group{
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .radio-group > p,.checkbox-group > p,.text-group > p{
+            font-weight: 700;
+        }
+        .radio-group label,
+        .checkbox-group label,
+        .text-group label{
+            font-weight: 500;
+        }
         .tips{
             position: absolute;
             top: 50%;
@@ -86,38 +98,33 @@
             <p class="suvTitle">问卷标题</p>
             <p class="welcome">感谢您能抽出几分钟时间来参加本次答题，现在我们就马上开始吧！</p>
         </div>
-        <div class="text">
+        <div class="text-group">
             <p>单行填空</p>
             <input type="text" style="width: 100%">
         </div>
-        <div class="radio">
+        <div class="radio-group">
             <p>单选框</p>
-            <input type="radio" id="radio-1" name="radio1">
-            <label for="radio-1">选择一</label>
-            <input type="radio" id="radio-2" name="radio1">
-            <label for="radio-2">选择二</label>
+            <div class="radio">
+                <input type="radio" id="radio-1" name="radio1">
+                <label for="radio-1">选择一</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="radio-2" name="radio1">
+                <label for="radio-2">选择二</label>
+            </div>
         </div>
-        <div class="checkbox">
-            <p>单选框</p>
-            <input type="checkbox" id="checkbox-1">
-            <label for="checkbox-1">选择一</label>
-            <input type="checkbox" id="checkbox-2">
-            <label for="checkbox-2">选择二</label>
+        <div class="checkbox-group">
+            <p>多选框</p>
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox-1">
+                <label for="checkbox-1">选择一</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox-2">
+                <label for="checkbox-2">选择二</label>
+            </div>
         </div>
-        <div class="radio">
-            <p>单选框</p>
-            <input type="radio" id="radio-11" name="radio11">
-            <label for="radio-11">选择一</label>
-            <input type="radio" id="radio-22" name="radio11">
-            <label for="radio-22">选择二</label>
-        </div>
-        <div class="checkbox">
-            <p>单选框</p>
-            <input type="checkbox" id="checkbox-11">
-            <label for="checkbox-11">选择一</label>
-            <input type="checkbox" id="checkbox-22">
-            <label for="checkbox-22">选择二</label>
-        </div>
+
         <a href="#" class="submit">提交</a>
     </div>
 </div>
