@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_289760_kjgrg5zwme9g4x6r.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/header.css">
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <style>
+        body{
+            height: 100%;
+            background-color: #fff;
+        }
+        .nav .collent-state{
+            padding:18px;
+            text-align: right;
+        }
+        .nav .collent-state > span{
+            font-size: 16px;
+            color: #fff;
+        }
+    </style>
+    <script>
+        $(()=>{
+            $('#theadCheckbox').change(()=>{
+                $('.table tbody input[type="checkbox"]').prop("checked",$('#theadCheckbox input[type="checkbox"]').is(':checked'))
+            })
+        })
+    </script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">返回</a></li>
+                    <li>
+                        <a href="#">这是我的第一份问卷</a>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right member">
+                    <li class="collent-state"><span style="color: #53a4f4;">0份</span><br><span>已收集</span></li>
+                    <li class="submitPush"><a href="#">导出数据</a></li>
+                    <li class="submitPush"><a href="#">停止收集</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="container main">
+    <div class="alert alert-success" role="alert">最后更新时间：2017年12月31日01:22:38</div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th id="theadCheckbox"><input type="checkbox"></th>
+                <th>第一选项</th>
+                <th>第二选项</th>
+                <th>第三选项</th>
+                <th>第四选项</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th><input type="checkbox"></th>
+                <td>温泽荣</td>
+                <td>QQ</td>
+                <td>wechat</td>
+                <td>github</td>
+            </tr>
+            <tr>
+                <th><input type="checkbox"></th>
+                <td>蔡晓杰</td>
+                <td>QQ</td>
+                <td>wechat</td>
+                <td>github</td>
+            </tr>
+            <tr>
+                <th><input type="checkbox"></th>
+                <td>温泽荣</td>
+                <td>QQ</td>
+                <td>wechat</td>
+                <td>github</td>
+            </tr>
+            <tr>
+                <th><input type="checkbox"></th>
+                <td>温泽荣</td>
+                <td>QQ</td>
+                <td>wechat</td>
+                <td>github</td>
+            </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination navbar-right">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

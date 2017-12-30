@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_289760_kjgrg5zwme9g4x6r.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/header.css">
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <script src="lib/qrcode/qrcode.min.js"></script>
+    <title>Title</title>
+    <style>
+        body{
+            height: 100%;
+            background-color: #fff;
+        }
+        .nav .collent-state{
+            padding:18px;
+            text-align: right;
+        }
+        .nav .collent-state > span{
+            font-size: 16px;
+            color: #fff;
+        }
+        h4 {
+            display: inline-block;
+            color: #000;
+            font-weight: 700;
+        }
+        .out-link .small-title {
+            font-size: 16px;
+        }
+
+        .link {
+            border: 1px solid #dcdcdc;
+            display: inline-block;
+            border-radius: 4px 4px 4px 4px;
+            width: 80%;
+            box-sizing: border-box;
+            margin-bottom: 50px;
+        }
+
+        .link > input[type="text"] {
+            background-color: #fafafa;
+            border-radius: 4px 0px 0px 4px;
+            line-height: 2;
+            font-size: 18px;
+            border: none;
+            width: calc(100% - 89px);
+            padding-left: 15px;
+        }
+
+        .link > button {
+            border: none;
+            background-color: #fafafa;
+            font-size: 14px;
+            height: 38px;
+            padding: 0 30px;
+            float: right;
+            color: #888;
+            border-left: 1px solid #dcdcdc;
+            border-radius: 0px 4px 4px 0px;
+        }
+
+        #qrcode {
+            display: inline-block;
+            padding: 8px;
+            border: 1px solid #dcdcdc;
+        }
+
+        .qrcode-desc {
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+        }
+
+        .button {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            transition: all 1s ease;
+            vertical-align: bottom;
+        }
+
+        .qrcode-desc svg {
+            width: 120px;
+            height: 40px;
+        }
+
+        .qrcode-desc rect {
+            width: 120px;
+            height: 40px;
+        }
+
+        .qrcode-desc #shape {
+            fill: transparent;
+            stroke: #fcfcfc;
+            stroke-dasharray: 85 400;
+            stroke-dashoffset: -220;
+            transition: 1.5s all ease;
+        }
+        .button:hover #shape{
+            stroke-dasharray: 70 0;
+            stroke-width: 2px;
+            stroke-dashoffset: 0;
+            stroke: #53a4f4;
+
+        }
+        .qrcode-desc button {
+            background-color: #53a4f4;
+            /*border: 1px solid #dcdcdc;*/
+            border-radius: 6px;
+            transition: 1s all ease
+        }
+
+
+
+        #download {
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 10px;
+            left: 0;
+            text-align: center;
+
+        }
+    </style>
+    <script>
+        $(() => {
+            new QRCode('qrcode', {
+                text: $('.link input[type="text"]').val(),
+                width: 140,
+                height: 140,
+                colorDark: '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            function exportCanvasAsPNG(canvas, fileName) {
+                var MIME_TYPE = "image/png";
+                var dlLink = document.createElement('a');
+                dlLink.download = fileName;
+                dlLink.href = canvas.toDataURL("image/png");
+                dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.href].join(':');
+                document.body.appendChild(dlLink);
+                dlLink.click();
+                document.body.removeChild(dlLink);
+            }
+
+            $('#copy').click(() => {
+                document.getElementById("text").select();
+                document.execCommand("copy", false, null);
+            })
+            $("#download").click(function () {
+                exportCanvasAsPNG($("#qrcode").find("canvas")[0], "qrcoder.png");
+            });
+
+        })
+    </script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">返回</a></li>
+                    <li>
+                        <a href="#">这是我的第一份问卷</a>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right member">
+                    <li class="collent-state"><span style="color: #53a4f4;">0份</span><br><span>已收集</span></li>
+                    <li class="submitPush"><a href="#">停止收集</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="container main">
+    <div class="out-link">
+        <div class="out-link-title">
+            <h4>表单链接</h4>
+            <span class="small-title">复制或分享访问链接给他人填写</span>
+        </div>
+        <div class="link">
+            <input type="text" id="text" value="http://www.wenjuan.com/link/7891011">
+            <button id="copy">复制</button>
+        </div>
+        <div class="caption">
+            <h4 style="display: block">
+                二维码收集
+            </h4>
+            <div id="qrcode">
+            </div>
+            <div class="qrcode-desc">
+                <p>在设计的海报、广告中增加二维码，方便用户通过扫码填写</p>
+                <p>在各类线下活动中，通过下载打印二维码，让用户扫码填写</p>
+                <p>通过微信、QQ、微博扫一扫分享给好友，让更多的用户填写</p>
+                <div class="button">
+                    <svg>
+                        <rect id="shape"></rect>
+                        <span id="download" href="#">下载二维码</span>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
